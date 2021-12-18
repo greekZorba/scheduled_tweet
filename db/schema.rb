@@ -12,9 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_12_17_012324) do
 
-  create_table "tweets", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "twitter_account_id", null: false
+  create_table "tweets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "twitter_account_id", null: false
     t.text "body"
     t.datetime "publish_at"
     t.string "tweet_id"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2021_12_17_012324) do
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
-  create_table "twitter_accounts", force: :cascade do |t|
-    t.integer "user_id", null: false
+  create_table "twitter_accounts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.string "name"
     t.string "username"
     t.string "image"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_12_17_012324) do
     t.index ["user_id"], name: "index_twitter_accounts_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
